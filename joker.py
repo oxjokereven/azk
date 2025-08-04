@@ -4,9 +4,9 @@ def extract_to_addresses(file_path):
     with open(file_path, 'r') as file:
         for line in file:
             # 检查行是否包含 "to :"
-            if 'to :' in line:
-                # 提取 "to :" 后的地址
-                address = line.split('to :')[1].strip()
+            if 'to: ' in line:
+                # 提取 "to: " 后的地址
+                address = line.split('to: ')[1].strip()
                 addresses.append(address)
 
     return addresses

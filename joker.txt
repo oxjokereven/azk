@@ -1,6 +1,33 @@
-from : G2YxRa6wt1qePMwfJzdXZG62ej4qaTC7YURzuh2Lwd3t
-to : DsvrBt43bbB9JzwcZNgSDJ8P7CUCh38vJYyKj66ct3vG
-amount : 1.86134995
-from : G2YxRa6wt1qePMwfJzdXZG62ej4qaTC7YURzuh2Lwd3t
-to : CFnanYRGp6nppjqUnqoejrcczcR2D6ERkkKym2mm5W8M
-amount : 1.42311886
+amount: 1.489716860
+from: G2YxRa6wt1qePMwfJzdXZG62ej4qaTC7YURzuh2Lwd3t
+to: UJUnL8TpkRYMcXhBw8J2vTt5TRheybts4x5mPnbEPbs
+amount: 1.489716860
+from: G2YxRa6wt1qePMwfJzdXZG62ej4qaTC7YURzuh2Lwd3t
+to: Dnff2WaL3wkd1Cs8g7ys8LyjsxdatZnAAKfD9yiYXUmY
+amount: 1.290916860
+from: G2YxRa6wt1qePMwfJzdXZG62ej4qaTC7YURzuh2Lwd3t
+to: 8odchE86FXs5rDg6xSxCSq86QAh9JRuPwywDsw8kqzYu
+amount: 2.483716860
+from: G2YxRa6wt1qePMwfJzdXZG62ej4qaTC7YURzuh2Lwd3t
+to: 8Gx6ubxtteBj7SuP3McihCtVVJWBVcVAwijb93ae1WGQ
+amount: 0.793916860
+from: G2YxRa6wt1qePMwfJzdXZG62ej4qaTC7YURzuh2Lwd3t
+to: H4M1gwznV7zi3HtcTfkXqu9zc5tMH7KMjKg1qdb58LkR
+amount: 2.058799250
+from: G2YxRa6wt1qePMwfJzdXZG62ej4qaTC7YURzuh2Lwd3t
+to: 8buYfCEhqx8nQvKZrjs8VQXZaCJFZ2UkFS6GefEkH3Mf
+amount: 1.092116860
+from: G2YxRa6wt1qePMwfJzdXZG62ej4qaTC7YURzuh2Lwd3t
+to: JCtbSwJrpZtU7x67u4chM4UjCFVWDR91ESZnhTse9j95
+amount: 0.700000000
+from: G2YxRa6wt1qePMwfJzdXZG62ej4qaTC7YURzuh2Lwd3t
+to: 7aWs8ZnikTd4ZVx2pHyVHseuy3UbhcW4Nodc2iMcJKCj
+amount: 5.000000000
+from: G2YxRa6wt1qePMwfJzdXZG62ej4qaTC7YURzuh2Lwd3t
+to: 94AW6ktY1NGPdu8x3wDJW6XhdLexERaWcbjgPg81VFA9
+amount: 2.980716860
+from: G2YxRa6wt1qePMwfJzdXZG62ej4qaTC7YURzuh2Lwd3t
+to: 6fmCvUDPBLvMffze6NMfYRigp4AfB1YwQuKaSxgjuq53
+amount: 1.042416860
+from: G2YxRa6wt1qePMwfJzdXZG62ej4qaTC7YURzuh2Lwd3t
+to: FZz44kZYuntHfdrbLMdMmmoQkrd672zymm8Uc6Ci8Gsp
