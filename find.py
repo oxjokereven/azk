@@ -19,30 +19,41 @@ def get_tx_count(address):
         else:
             return False, result
 
-# 大于 0.5 SOL, 这个函数暂时无法使用.
-def get_address_token(wallet_address):
-    # https://api-v2.solscan.io/v2/account/tokenaccounts?address=nPosUpnDtaB4dBaJUMF1bm78E4BTZDwWQWGoEmEyESx&page=1&page_size=480&type=token&hide_zero=true
-    time.sleep(0.1)
-
-    url = "https://api-v2.solscan.io/v2/account/tokenaccounts"
-    params = {
-        "address": f"{wallet_address}",
-        "page": 1,
-        "page_size": 480,
-        "type": "token",
-        "hide_zero": True
+def get_address_token(owner_address, api_key="c33e38d0-8f94-4140-990a-8548b1eb61d2"):
+    """
+    获取指定地址的代币账户数量
+    
+    Args:
+        owner_address (str): 要查询的钱包地址
+        api_key (str): Helius API密钥, 默认为预设值
+    
+    Returns:
+        int: 代币账户数量
+    """
+    url = f"https://mainnet.helius-rpc.com/?api-key={api_key}"
+    
+    payload = {
+        "jsonrpc": "2.0",
+        "id": "1",
+        "method": "getTokenAccountsByOwner",
+        "params": [
+            owner_address, 
+            {"programId": "TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA"}, 
+            {"encoding": "jsonParsed"}
+        ]
     }
-
-    response = requests.get(url, params=params)
-    data = response.json()
-
-    # 获取代币账户数量
-    token_count = data['data']['count']
-    print("token_count:", token_count)
-
-    # 如果有代币账户, 返回 True
-    if token_count > 4:
-        return True
+    headers = {"Content-Type": "application/json"}
+    
+    response = requests.post(url, json=payload, headers=headers)
+    response.raise_for_status()  # 检查HTTP错误
+        
+    result = response.json()
+    if 'result' in result and 'value' in result['result']:
+        value_length = len(result['result']['value'])
+        if value_length > 4:
+            return True
+        else:
+            return False
     else:
         return False
 
