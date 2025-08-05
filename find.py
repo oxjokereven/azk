@@ -14,7 +14,7 @@ def get_tx_count(address):
         result = response.json()
         tx_count = len(result)
 
-        if tx_count == 1:
+        if tx_count <= 1:
             return True
         else:
             return False, result
