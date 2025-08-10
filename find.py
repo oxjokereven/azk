@@ -17,7 +17,7 @@ def get_tx_count(address):
         if tx_count <= 2:
             return True
         else:
-            return False, result
+            return False
 
 def get_address_token(owner_address, api_key="c33e38d0-8f94-4140-990a-8548b1eb61d2"):
     """
