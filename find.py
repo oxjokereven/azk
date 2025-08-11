@@ -3,24 +3,32 @@ import requests
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 # Helius API 密钥
-API_KEY = "ce79497c-4d3e-41d5-ae64-6b33034c8003"
+API_KEY = "c4413624-6fed-4c2a-bcbd-967703786c34"  # google 0xjokereven
 
 # 零交互
 def get_tx_count(address):
     """获取地址的交易详情, 返回交易数量"""
+    print(f"正在检查地址: {address}")
+    
     url = f"https://api.helius.xyz/v0/addresses/{address}/transactions?api-key={API_KEY}"
     
     try:
-        response = requests.get(url, timeout=15)
+        print(f"请求交易数据: {url}")
+        response = requests.get(url, timeout=30)
+        print(f"响应状态码: {response.status_code}")
+        
         if response.status_code == 200:
             result = response.json()
             tx_count = len(result)
-            print("tx_count", tx_count)
+            print(f"tx_count: {tx_count}")
             # 同时满足 交易数量小于2 和 余额大于0.5 SOL
             return tx_count <= 2 and check_balance_greater_than(address, 0.5)
+        else:
+            print(f"HTTP错误: {response.status_code} - {response.text}")
+            return False
     except Exception as e:
         print(f"请求失败 {address}: {e}")
-    return False
+        return False
 
 def check_balance_greater_than(address, threshold=0.5):
     """
@@ -44,8 +52,12 @@ def check_balance_greater_than(address, threshold=0.5):
     headers = {"Content-Type": "application/json"}
     
     try:
-        response = requests.post(url, json=payload, headers=headers)
+        print(f"请求余额数据: {address}")
+        response = requests.post(url, json=payload, headers=headers, timeout=30)
+        print(f"余额响应状态码: {response.status_code}")
+        
         result = response.json()
+        print(f"余额响应: {result}")
         
         if 'result' in result and 'value' in result['result']:
             lamports = result['result']['value']
@@ -56,10 +68,10 @@ def check_balance_greater_than(address, threshold=0.5):
             print("获取余额失败:", result)
             return False
     except Exception as e:
-        print(f"请求失败: {e}")
+        print(f"余额请求失败: {e}")
         return False
 
-def get_address_token(owner_address, api_key="c33e38d0-8f94-4140-990a-8548b1eb61d2"):
+def get_address_token(owner_address, api_key=API_KEY):
     """
     获取指定地址的代币账户数量
     
@@ -121,7 +133,8 @@ def main():
     output_file = 'valid_addresses.txt'
 
     addresses = read_addresses(input_file)
-    max_workers = 3  # 并发度，可按需调整
+    print(f"总共读取到 {len(addresses)} 个地址")
+    max_workers = 3  # 降低并发度，避免请求过快
 
     with ThreadPoolExecutor(max_workers=max_workers) as executor:
         futures = [executor.submit(check_address, addr) for addr in addresses]
